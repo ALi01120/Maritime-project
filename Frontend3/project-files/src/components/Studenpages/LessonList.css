@@ -1,0 +1,141 @@
+/* Enhanced Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+/* Enhanced Lesson List Container */
+.enhanced-lesson-list-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+  padding: 60px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced Lesson Titles */
+.enhanced-lesson-titles {
+  width: 37%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enhanced-lesson-titles h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.enhanced-lesson-titles ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.enhanced-lesson-titles ul li {
+  cursor: pointer;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #333;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.enhanced-lesson-titles ul li:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.enhanced-active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Enhanced Lesson Content */
+.enhanced-lesson-content {
+  width: 65%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.enhanced-lesson-content h2 {
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  color: #333;
+}
+
+.enhanced-lesson-content p {
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.enhanced-progress-report {
+  margin-bottom: 20px;
+}
+
+.enhanced-progress-report p {
+  font-weight: bold;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.enhanced-lesson-content button {
+  padding: 12px 24px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.enhanced-lesson-content button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.enhanced-lesson-content button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.enhanced-complete-btn {
+  background-color: #28a745;
+  margin-top: 20px;
+}
+
+.enhanced-next-btn {
+  background-color: #ffc107;
+}
+
+@media (max-width: 768px) {
+  .enhanced-lesson-list-container {
+    flex-direction: column;
+  }
+
+  .enhanced-lesson-titles, .enhanced-lesson-content {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

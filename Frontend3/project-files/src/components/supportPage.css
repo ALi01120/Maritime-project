@@ -1,0 +1,44 @@
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.whatsapp-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.sliding-text {
+    position: absolute;
+    right: 70px; /* Adjusted to place the text outside of the icon */
+    background-color: #25d366;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for text */
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.whatsapp-float:hover .sliding-text {
+    opacity: 1;
+    transform: translateX(0); /* Slide in the text on hover */
+}

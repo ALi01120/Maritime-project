@@ -1,0 +1,76 @@
+/* Style for the vertical navbar */
+#vertical-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Width of the sidebar */
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+}
+
+/* Navbar content styling */
+.navbar-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Title styling */
+.navbar-title1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Links container styling */
+#navbar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+/* Individual nav item styling */
+.nav-item {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for nav items */
+.nav-item:hover {
+    background-color: #555;
+    color: #e0e0e0;
+}
+
+/* Logout button styling */
+#logout-button {
+    background-color: #ff4d4d;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    margin-top: 160px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Logout button hover effect */
+#logout-button:hover {
+    background-color: #cc0000;
+}
