@@ -1,0 +1,109 @@
+use maritime_1;
+-- Table for Users
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('Administrator', 'Student', 'Job Seeker', 'Client') NOT NULL,
+    age INT,
+    profile_image VARCHAR(255),
+    gender ENUM('Male', 'Female', 'Other'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table for Jobs
+CREATE TABLE jobs (
+    job_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    category VARCHAR(50),
+    country VARCHAR(50),
+    city VARCHAR(50),
+    location VARCHAR(100),
+    job_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expiry_date DATE,
+    job_timing ENUM('Full-time', 'Part-time', 'Internship'),
+    salary DECIMAL(10, 2), -- Assuming salary is in decimal format
+    employer_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (employer_id) REFERENCES users(id)
+);
+
+-- Table for Applications (for Job Seekers)
+CREATE TABLE applications (
+    application_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    job_id INT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    position VARCHAR(100) NOT NULL,
+    cv_path VARCHAR(255), -- Path to the CV or resume file
+    application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (job_id) REFERENCES jobs(job_id)
+);
+
+-- Table for Courses
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    category VARCHAR(50),
+    instructor_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (instructor_id) REFERENCES users(id)
+);
+
+-- Table for messages
+CREATE TABLE messages (
+    message_id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT,
+    receiver_id INT,
+    message TEXT,
+    sent_at TIMESTAMP
+);
+
+
+-- Table for Lessons
+CREATE TABLE lessons (
+    lesson_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_id INT,
+    title VARCHAR(100) NOT NULL,
+    content TEXT,
+    lesson_order INT, -- Assuming the order of lessons in a course
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+
+-- Table for notifications
+
+CREATE TABLE notifications (
+    notification_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    title VARCHAR(255) NOT NULL, -- Adding the title column
+    message TEXT NOT NULL,
+    notification_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_read BOOLEAN DEFAULT false,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+
+
+-- Table for Enrollments
+CREATE TABLE enrollments (
+    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    course_id INT,
+    title VARCHAR(255),
+    instructor_name VARCHAR(255),
+    start_date DATE,
+    end_date DATE,
+    enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
